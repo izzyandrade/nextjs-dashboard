@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Sidebar() {
 	return (
-		<div className='sticky top-8 flex h-full w-full flex-col'>
+		<div className='sticky top-8 flex h-screen w-full flex-col'>
 			<div className='mb-5 flex h-12 w-12 items-center gap-5'>
 				<Image
 					className='rounded-full object-cover'

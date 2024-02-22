@@ -1,24 +1,26 @@
 import {
-	FastAnswerIcon,
 	HomeIcon,
-	ScheduleIcon,
-	UsersIcon,
-	ReportsIcon,
-	SettingsIcon,
-	SupportIcon,
-} from '@/assets/icons';
-import { ReactNode } from 'react';
+	UserIcon,
+	ChatBubbleLeftRightIcon,
+	CalendarIcon,
+	ClipboardDocumentIcon,
+	WrenchScrewdriverIcon,
+	QuestionMarkCircleIcon,
+} from '@heroicons/react/16/solid';
+import { ReactElement, ReactNode } from 'react';
 
 export type MenuItem = {
 	title: string;
 	path: string;
-	icon: ReactNode;
+	icon: ReactElement;
 };
 
 export type MenuItems = {
 	title: string;
 	list: MenuItem[];
 };
+
+const defaultIconStyle = 'w-6 h-6 text-white';
 
 export const menuItems = [
 	{
@@ -27,22 +29,22 @@ export const menuItems = [
 			{
 				title: 'Dashboard',
 				path: '/dashboard',
-				icon: <HomeIcon />,
+				icon: <HomeIcon className={`${defaultIconStyle}`} />,
 			},
 			{
 				title: 'Users',
 				path: '/dashboard/users',
-				icon: <UsersIcon />,
+				icon: <UserIcon className={`${defaultIconStyle}`} />,
 			},
 			{
 				title: 'Fast Answers',
 				path: '/dashboard/answers',
-				icon: <FastAnswerIcon />,
+				icon: <ChatBubbleLeftRightIcon className={`${defaultIconStyle}`} />,
 			},
 			{
 				title: 'Schedules',
 				path: '/dashboard/schedules',
-				icon: <ScheduleIcon />,
+				icon: <CalendarIcon className={`${defaultIconStyle}`} />,
 			},
 		],
 	},
@@ -52,7 +54,7 @@ export const menuItems = [
 			{
 				title: 'Reports',
 				path: '/dashboard/reports',
-				icon: <ReportsIcon />,
+				icon: <ClipboardDocumentIcon className={`${defaultIconStyle}`} />,
 			},
 		],
 	},
@@ -62,12 +64,12 @@ export const menuItems = [
 			{
 				title: 'Settings',
 				path: '/dashboard/settings',
-				icon: <SettingsIcon />,
+				icon: <WrenchScrewdriverIcon className={`${defaultIconStyle}`} />,
 			},
 			{
 				title: 'Support',
 				path: '/dashboard/support',
-				icon: <SupportIcon />,
+				icon: <QuestionMarkCircleIcon className={`${defaultIconStyle}`} />,
 			},
 		],
 	},

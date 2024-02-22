@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { Input } from '@/components/ui/input';
+import SearchInput from '@/components/dashboard/navbar/searchInput/searchInput';
 
 export default function Navbar() {
 	const pathname = usePathname();
@@ -10,8 +11,7 @@ export default function Navbar() {
 			<div className='title'>{pathname.split('/').pop()}</div>
 			<div className='menu'>
 				<div className='search'>
-					{/* searchIcon */}
-					<Input placeholder='Search...' className='input' />
+					<SearchInput />
 				</div>
 			</div>
 		</div>
