@@ -1,8 +1,8 @@
 import { fetchUsers } from '@/app/lib/data';
-import { User } from '@/app/lib/models';
+import { UserModel } from '@/app/lib/models';
 
 export default async function UsersPage() {
-	const users: Array<User> = await fetchUsers();
+	const users: Array<UserModel> = await fetchUsers();
 	return (
 		<div>
 			<h1>
