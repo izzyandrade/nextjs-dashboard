@@ -8,8 +8,6 @@ Install project dependencies by running:
   npm install
 ```
 
-make sure the /public folder contains all 3D models that are being used in this project.
-
 ## Running the project
 
 With everything setup, to run the project simply execute:
@@ -18,4 +16,4 @@ With everything setup, to run the project simply execute:
   npm run dev
 ```
 
-After the execution, you should see the web page open, and all 3D models loading correctly.
+After the execution, you should see the web page open in localhost.
