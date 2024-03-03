@@ -13,6 +13,7 @@ export interface UserModel {
 	createdAt?: Date;
 	updatedAt?: Date;
 }
+
 const userSchema = new Schema<UserModel>(
 	{
 		username: {
