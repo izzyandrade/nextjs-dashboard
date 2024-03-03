@@ -13,6 +13,7 @@ export default function SearchInput({ className, ...props }: SearchInputProps) {
 				{...props}
 				type='search'
 				className='text-md w-full rounded border py-2 pl-10 pr-3 shadow-sm'
+				placeholder='Search...'
 			/>
 		</label>
 	);

@@ -7,6 +7,7 @@ import {
 	WrenchScrewdriverIcon,
 	QuestionMarkCircleIcon,
 } from '@heroicons/react/16/solid';
+import { ArrowLeftStartOnRectangleIcon } from '@heroicons/react/20/solid';
 import { ReactElement, ReactNode } from 'react';
 
 export type MenuItem = {
@@ -70,6 +71,11 @@ export const menuItems = [
 				title: 'Support',
 				path: '/dashboard/support',
 				icon: <QuestionMarkCircleIcon className={`${defaultIconStyle}`} />,
+			},
+			{
+				title: 'Logout',
+				path: '/dashboard/support',
+				icon: <ArrowLeftStartOnRectangleIcon className={`${defaultIconStyle}`} />,
 			},
 		],
 	},
