@@ -15,12 +15,13 @@ import {
 	FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { authenticate } from '../lib/actions';
 
 const formSchema = z.object({
 	username: z.string().min(2, {
 		message: 'Username must be at least 2 characters.',
 	}),
-	password: z.string(),
+	password: z.string().min(1, { message: 'Field is required' }),
 });
 
 export default function LoginPage() {
@@ -32,18 +33,20 @@ export default function LoginPage() {
 		},
 	});
 
-	function onSubmit(values: z.infer<typeof formSchema>) {
-		console.log(values);
-	}
-
 	return (
 		<div className='flex h-screen flex-col items-center justify-center gap-2'>
 			<h4 className='font-bold'>Chatbot Admin Login</h4>
 			<div className='w-[40%] space-y-8 rounded-md border-4 border-slate-800 border-opacity-35 bg-slate-900 p-4 pb-7 shadow-md shadow-slate-900'>
 				<Form {...form}>
 					<form
-						onSubmit={form.handleSubmit(onSubmit)}
 						className='flex flex-col gap-3'
+						action={async (formData) => {
+							const formReturn = await form.trigger();
+							if (!formReturn) return;
+							authenticate(formData);
+							form.reset();
+							return true; // prevent default form submission behavior
+						}}
 					>
 						<FormField
 							control={form.control}
@@ -52,7 +55,11 @@ export default function LoginPage() {
 								<FormItem>
 									<FormLabel>Username</FormLabel>
 									<FormControl>
-										<Input placeholder='Type your username' {...field} />
+										<Input
+											placeholder='Type your username'
+											{...form.register('username')}
+											{...field}
+										/>
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -68,6 +75,7 @@ export default function LoginPage() {
 										<Input
 											placeholder='Type your password'
 											type='password'
+											{...form.register('password')}
 											{...field}
 										/>
 									</FormControl>

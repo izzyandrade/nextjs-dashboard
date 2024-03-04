@@ -72,11 +72,6 @@ export const menuItems = [
 				path: '/dashboard/support',
 				icon: <QuestionMarkCircleIcon className={`${defaultIconStyle}`} />,
 			},
-			{
-				title: 'Logout',
-				path: '/dashboard/support',
-				icon: <ArrowLeftStartOnRectangleIcon className={`${defaultIconStyle}`} />,
-			},
 		],
 	},
 ];

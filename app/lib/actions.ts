@@ -1,5 +1,6 @@
 'use server';
 
+import { signIn } from '../auth';
 import { User } from './models';
 import { connectToDB } from './utils';
 import bcrypt from 'bcrypt';
@@ -26,5 +27,16 @@ export const addUser = async (formData: FormData) => {
 	} catch (error) {
 		console.log(error);
 		throw new Error('Failed to create user');
+	}
+};
+
+export const authenticate = async (formData: FormData) => {
+	const { username, password } = Object.fromEntries(formData);
+
+	try {
+		await signIn('credentials', { username, password });
+	} catch (error) {
+		console.log(error);
+		throw error;
 	}
 };

@@ -62,7 +62,6 @@ export default function RegisterPage() {
 						className='flex flex-col gap-3'
 						action={async (formData) => {
 							const formReturn = await form.trigger();
-							console.log('formReturn', formReturn);
 							if (!formReturn) return;
 							addUser(formData);
 							resetForm();
